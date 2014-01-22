@@ -13,10 +13,10 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-    @attr = { :name => "Example User", :email => "User@example.com" }
+    @attr = { :name => 'Example User', :email => 'User@example.com' }
   end
 
-  it "should create a new instance given valid attributes" do
+  it 'should create a new instance given valid attributes' do
     User.create!(@attr)
   end
 
