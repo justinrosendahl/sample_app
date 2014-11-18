@@ -37,6 +37,12 @@ class User < ActiveRecord::Base
     encrypted_password == encrypt(submitted_password) #Compare encrypted_password with the encrypted version of submitted_password
   end
 
+  def self.authenticate(email, submitted_password)
+    user = find_by_email(email)
+    return nil if user.nil?
+    return user if user.has_password?(submitted_password)
+  end
+
   private
 
     def encrypt_password
@@ -50,6 +56,6 @@ class User < ActiveRecord::Base
       secure_hash("#{Time.now.utc}--#{password}")
     end
     def secure_hash(string)
-      Digest::SHA2.hexdigest string
+      Digest::SHA512.hexdigest string
     end
 end
