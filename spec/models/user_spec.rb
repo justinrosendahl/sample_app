@@ -105,10 +105,10 @@ describe User do
     end
     describe "has_password? method" do
       it 'should be true if the password matches' do
-        @user.has_password?(@attr[:password]).should be_true
+        @user.has_password?(@attr[:password]).should be_truthy
       end
       it "should be false if the password doesn't match" do
-        @user.has_password?("invalid").should be_false
+        @user.has_password?("invalid").should be_falsey
       end
 
     end
