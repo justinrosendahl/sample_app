@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'protected_attributes'
 
+gem 'gravatar_image_tag', '1.2.0'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -42,6 +44,9 @@ end
 
 group :test do
   gem 'webrat', '~>0.7'
+#  gem 'factory_girl', '~> 4.5.0'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner', '~> 1.3.0'
 end
 
 # Use ActiveModel has_secure_password
