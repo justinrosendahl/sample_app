@@ -30,6 +30,8 @@ module SampleApp
       g.test_framework  :rspec, :fixture => true, :views => false
       g.integration_tool :rspec, :fixture => true, :views => true
     end
+    #configure sensitive parameteres which will be filtered from the log file
+    config.filter_parameters += [:password]
   end
 
 
