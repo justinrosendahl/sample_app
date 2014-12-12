@@ -3,6 +3,20 @@ require 'spec_helper'
 describe UsersController do
   render_views
   describe "GET 'new'" do
+    describe 'New form field list' do
+      it 'should have field "name"' do
+        get :new
+        response.should have_selector("input[name='user[name]'][type='text']")
+      end
+      it 'should have field "email"' do
+        get :new
+        response.should have_selector("input[name='user[email]'][type='text']")
+      end
+      it 'should have field "password"' do
+        get :new
+        response.should have_selector("input[name='user[password]'][type='password']")
+      end
+    end
     it 'returns http success' do
       get :new
       response.should be_success
