@@ -23,7 +23,7 @@ describe UsersController do
     end
     it 'Should contain a title: Ruby on Rails Tutorial Sample App | Sign Up' do
       get :new
-      response.should have_selector('title', :content => 'Ruby on Rails Tutorial Sample App | Sign Up')
+      response.should have_selector('title', :content => 'Sign Up')
     end
   end
   describe "get 'show'" do
