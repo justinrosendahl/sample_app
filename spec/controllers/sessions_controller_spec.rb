@@ -48,5 +48,18 @@ describe SessionsController do
         response.should redirect_to(user_path(@user))
       end
     end
+    describe 'signing out' do
+      before(:each) do
+        @user = create(:user)
+
+      end
+      it 'should sign out/destroy user' do
+        test_sign_in (@user)
+        controller.should be_signed_in
+        delete :destroy
+        controller.should_not be_signed_in
+        response.should redirect_to(root_path)
+      end
+    end
   end
 end

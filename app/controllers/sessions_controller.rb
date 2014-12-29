@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    #implement destroy
+    sign_out
+    redirect_to root_path
   end
 
 
