@@ -55,16 +55,16 @@ describe "Users" do
         response.should have_selector("div.flash.error", :content => "Invalid")
       end
     end
+    #'Test fail because the sign out link is using JS to do a Delete call versus the normal get for a link'
     describe 'success' do
       it 'should sign user in and out' do
         user = create(:user)
-
         visit signin_path
         fill_in :email, :with => user.email
         fill_in :password, :with => user.password
         click_button
         controller.should be_signed_in
-        click_link 'Sign out'
+        click_link "sign out"
         controller.should_not be_signed_in
       end
     end
